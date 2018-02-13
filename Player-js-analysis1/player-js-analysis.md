@@ -26,9 +26,10 @@
    - Changes `playState` to `"paused"`.
    - Removes the `"playing"` class.
    - Adds the `"paused"` class.
-5. The `skipTo()` method accepts one parameter, `percentage`.
-  - if the `playState` is not `"playing"`, the `soundObject` property will display the time as a `percentage` out of `100`.
-6. The `setVolume()` method accepts one parameter , `percentage`.
-  - The `volume` will be displayed as a `percent`.
-  - `soundObject.setVolume` is set to a parameter, `percentage`.
-7.  New constant variable `player` assigned to `new Player()` method
+5. The `skipTo()` method accepts one parameter, `percent`.
+  - It checks to see if `playState` is not `"playing"`.
+  - Returns, `soundObject.setTime` set to `percentage` out of `100` and `soundObject.getDuration` is displayed.
+6. The `setVolume()` method accepts one parameter , `percent`.
+  - It checks to see if `volume` is equal to `percent`.
+  - `soundObject.setVolume` accepts one parameter, `percent`.
+7.  Created a new player by declaring a constant variable `player` created and assigned to `new Player()` method.
