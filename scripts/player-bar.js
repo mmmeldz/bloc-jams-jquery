@@ -2,6 +2,7 @@
   $('button#play-pause').on('click', function() {
     player.playPause();
     $(this).attr('playState', player.playState);
+    $('#time-control .total-time').text( player.prettyTime(player.getDuration()) );
   });
 
   $('button#next').on('click', function() {
@@ -25,4 +26,25 @@
 
 });
 
+$('#time-control input').on('input', function (event) {
+     player.skipTo(event.target.value);
+   });
+
+$('volume-control input').on('input',function (event){
+  player.setVolume(event.target.value);
+});
+
+setInterval( () => {
+    if (player.playState !== 'playing') { return; }
+    const currentTime = player.getTime();
+    const duration = player.getDuration();
+    const percent = (currentTime / duration) * 100;
+    $('#time-control .current-time').text( player.prettyTime(currentTime) );
+    $('#time-control input').val(percent);
+  }, 1000);
+
+  function setSong(song) {
+      player.playPause(song);
+      $('#time-control .total-time').text( player.prettyTime(song.duration));
+    };
 }
